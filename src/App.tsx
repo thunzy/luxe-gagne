@@ -19,7 +19,12 @@ import OwnerSettings from "./pages/owner/OwnerSettings";
 // Admin Panel
 import { AdminLayout } from "./components/dashboard/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
-import AdminTasks from "./pages/admin/AdminTasks";
+import AdminOwners from "./pages/admin/AdminOwners";
+import AdminProperties from "./pages/admin/AdminProperties";
+import AdminCalendar from "./pages/admin/AdminCalendar";
+import AdminMaintenance from "./pages/admin/AdminMaintenance";
+import AdminFinances from "./pages/admin/AdminFinances";
+import AdminSettings from "./pages/admin/AdminSettings";
 
 const queryClient = new QueryClient();
 
@@ -46,7 +51,16 @@ const App = () => (
           {/* Admin Panel */}
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminDashboard />} />
-            <Route path="tasks" element={<AdminTasks />} />
+            <Route path="owners" element={<AdminOwners />} />
+            <Route path="owners/:id" element={<AdminOwners />} />
+            <Route path="properties" element={<AdminProperties />} />
+            <Route path="properties/:id" element={<AdminProperties />} />
+            <Route path="calendar" element={<AdminCalendar />} />
+            <Route path="maintenance" element={<AdminMaintenance />} />
+            <Route path="maintenance/cleaning" element={<AdminMaintenance />} />
+            <Route path="maintenance/technical" element={<AdminMaintenance />} />
+            <Route path="finances" element={<AdminFinances />} />
+            <Route path="settings" element={<AdminSettings />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />

@@ -76,6 +76,17 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        admin: {
+          primary: "hsl(var(--admin-primary))",
+          "primary-foreground": "hsl(var(--admin-primary-foreground))",
+          sidebar: "hsl(var(--admin-sidebar-bg))",
+          "sidebar-foreground": "hsl(var(--admin-sidebar-foreground))",
+          "sidebar-accent": "hsl(var(--admin-sidebar-accent))",
+          "sidebar-active": "hsl(var(--admin-sidebar-active))",
+          urgent: "hsl(var(--admin-alert-urgent))",
+          warning: "hsl(var(--admin-alert-warning))",
+          success: "hsl(var(--admin-alert-success))",
+        },
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
