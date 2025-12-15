@@ -1,6 +1,6 @@
 import { OwnerKPIs } from "@/components/dashboard/owner/OwnerKPIs";
 import { OwnerRevenueChart } from "@/components/dashboard/owner/OwnerRevenueChart";
-import { OwnerBookingsTable } from "@/components/dashboard/owner/OwnerBookingsTable";
+import { OwnerActivityFeed } from "@/components/dashboard/owner/OwnerActivityFeed";
 
 export default function OwnerDashboard() {
   return (
@@ -20,14 +20,14 @@ export default function OwnerDashboard() {
         <OwnerKPIs />
       </div>
 
-      {/* Chart */}
-      <div className="animate-fade-in animation-delay-200">
-        <OwnerRevenueChart />
-      </div>
-
-      {/* Bookings Table */}
-      <div className="animate-fade-in animation-delay-300">
-        <OwnerBookingsTable />
+      {/* Chart and Activity Feed */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-fade-in animation-delay-200">
+        <div className="lg:col-span-2">
+          <OwnerRevenueChart />
+        </div>
+        <div>
+          <OwnerActivityFeed />
+        </div>
       </div>
     </div>
   );

@@ -1,15 +1,16 @@
-import { Home, Calendar, FileText, Wrench, Settings, Menu, X, LogOut } from "lucide-react";
+import { Home, CalendarDays, FileText, Wrench, Settings, Menu, X, LogOut, Receipt, BookOpen } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { icon: Home, label: "Accueil", path: "/owner" },
-  { icon: Calendar, label: "Mon Calendrier", path: "/owner/calendar" },
-  { icon: FileText, label: "Mes Documents", path: "/owner/documents" },
+  { icon: Home, label: "Dashboard", path: "/owner" },
+  { icon: BookOpen, label: "Mes Réservations", path: "/owner/bookings" },
+  { icon: Receipt, label: "Finances & Factures", path: "/owner/finances" },
   { icon: Wrench, label: "Maintenance", path: "/owner/maintenance" },
-  { icon: Settings, label: "Réglages", path: "/owner/settings" },
+  { icon: CalendarDays, label: "Calendrier", path: "/owner/calendar" },
+  { icon: FileText, label: "Documents", path: "/owner/documents" },
 ];
 
 export function OwnerSidebar() {
@@ -76,6 +77,19 @@ export function OwnerSidebar() {
 
           {/* Footer */}
           <div className="p-4 border-t border-sidebar-border">
+            <NavLink
+              to="/owner/settings"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "flex items-center gap-3 px-4 py-3 w-full rounded-lg text-sm font-medium transition-colors mb-1",
+                location.pathname === "/owner/settings"
+                  ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                  : "text-sidebar-foreground hover:bg-sidebar-accent"
+              )}
+            >
+              <Settings className="h-5 w-5" />
+              Réglages
+            </NavLink>
             <button className="flex items-center gap-3 px-4 py-3 w-full rounded-lg text-sm font-medium text-sidebar-foreground hover:bg-sidebar-accent transition-colors">
               <LogOut className="h-5 w-5" />
               Déconnexion
