@@ -9,6 +9,8 @@ import NotFound from "./pages/NotFound";
 // Owner Portal
 import { OwnerLayout } from "./components/dashboard/owner/OwnerLayout";
 import OwnerDashboard from "./pages/owner/OwnerDashboard";
+import OwnerBookings from "./pages/owner/OwnerBookings";
+import OwnerFinances from "./pages/owner/OwnerFinances";
 import OwnerCalendar from "./pages/owner/OwnerCalendar";
 import OwnerDocuments from "./pages/owner/OwnerDocuments";
 import OwnerMaintenance from "./pages/owner/OwnerMaintenance";
@@ -33,6 +35,8 @@ const App = () => (
           {/* Owner Portal */}
           <Route path="/owner" element={<OwnerLayout />}>
             <Route index element={<OwnerDashboard />} />
+            <Route path="bookings" element={<OwnerBookings />} />
+            <Route path="finances" element={<OwnerFinances />} />
             <Route path="calendar" element={<OwnerCalendar />} />
             <Route path="documents" element={<OwnerDocuments />} />
             <Route path="maintenance" element={<OwnerMaintenance />} />

@@ -5,8 +5,8 @@ import { Calendar } from "@/components/ui/calendar";
 import { Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Mock data for booked dates
-const bookedDates = [
+// Mock data for booked dates (Guest reservations)
+const guestBookedDates = [
   new Date(2024, 11, 15),
   new Date(2024, 11, 16),
   new Date(2024, 11, 17),
@@ -19,7 +19,8 @@ const bookedDates = [
   new Date(2024, 11, 29),
 ];
 
-const blockedDates = [
+// Owner blocked dates
+const ownerBlockedDates = [
   new Date(2024, 11, 24),
   new Date(2024, 11, 25),
 ];
@@ -28,13 +29,13 @@ export default function OwnerCalendar() {
   const [selectedDates, setSelectedDates] = useState<Date[] | undefined>([]);
   const [dialogOpen, setDialogOpen] = useState(false);
 
-  const isBooked = (date: Date) =>
-    bookedDates.some(
+  const isGuestBooked = (date: Date) =>
+    guestBookedDates.some(
       (d) => d.toDateString() === date.toDateString()
     );
 
-  const isBlocked = (date: Date) =>
-    blockedDates.some(
+  const isOwnerBlocked = (date: Date) =>
+    ownerBlockedDates.some(
       (d) => d.toDateString() === date.toDateString()
     );
 
@@ -43,7 +44,7 @@ export default function OwnerCalendar() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="font-serif text-2xl lg:text-3xl font-semibold text-foreground">
-            Mon Calendrier
+            Calendrier
           </h1>
           <p className="text-muted-foreground mt-1">
             Visualisez vos réservations et bloquez des dates
@@ -82,22 +83,22 @@ export default function OwnerCalendar() {
       </div>
 
       {/* Legend */}
-      <div className="flex flex-wrap gap-4 text-sm">
+      <div className="flex flex-wrap gap-6 text-sm">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-success" />
-          <span className="text-muted-foreground">Loué</span>
+          <div className="w-5 h-5 rounded bg-success" />
+          <span className="text-muted-foreground">Réservation Guest</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-muted-foreground" />
-          <span className="text-muted-foreground">Bloqué par vous</span>
+          <div className="w-5 h-5 rounded bg-muted-foreground" />
+          <span className="text-muted-foreground">Blocage Propriétaire</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-dashboard-card border border-border" />
+          <div className="w-5 h-5 rounded bg-dashboard-card border border-border" />
           <span className="text-muted-foreground">Disponible</span>
         </div>
       </div>
 
-      {/* Calendar Grid */}
+      {/* Full Page Calendar */}
       <div className="bg-dashboard-card rounded-xl p-6 shadow-soft border border-border/50">
         <Calendar
           mode="single"
@@ -130,12 +131,12 @@ export default function OwnerCalendar() {
             day_hidden: "invisible",
           }}
           modifiers={{
-            booked: bookedDates,
-            blocked: blockedDates,
+            guestBooked: guestBookedDates,
+            ownerBlocked: ownerBlockedDates,
           }}
           modifiersClassNames={{
-            booked: "!bg-success !text-primary-foreground hover:!bg-success/90",
-            blocked: "!bg-muted-foreground !text-primary-foreground hover:!bg-muted-foreground/90",
+            guestBooked: "!bg-success !text-primary-foreground hover:!bg-success/90",
+            ownerBlocked: "!bg-muted-foreground !text-primary-foreground hover:!bg-muted-foreground/90",
           }}
         />
       </div>
