@@ -61,6 +61,7 @@
     --warning: 45 93% 58%; /* Yellow for pending */
     --info: 210 100% 50%;
 
+    /* Owner Sidebar (light) */
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 220 9% 46%;
     --sidebar-primary: 150 48% 20%;
@@ -69,6 +70,17 @@
     --sidebar-accent-foreground: 220 9% 30%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 43 72% 52%;
+
+    /* Admin Design System */
+    --admin-primary: 245 58% 51%; /* Royal Blue/Violet */
+    --admin-primary-foreground: 0 0% 100%;
+    --admin-sidebar-bg: 222 47% 11%; /* Dark slate */
+    --admin-sidebar-foreground: 210 17% 75%;
+    --admin-sidebar-accent: 222 47% 18%;
+    --admin-sidebar-active: 245 58% 51%;
+    --admin-alert-urgent: 0 84% 60%;
+    --admin-alert-warning: 38 92% 50%;
+    --admin-alert-success: 142 76% 36%;
   }
 
   .dark {
